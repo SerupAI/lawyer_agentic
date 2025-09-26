@@ -42,8 +42,10 @@ ENV PATH="/opt/venv/bin:$PATH"
 WORKDIR /app
 
 # Copy application code
-COPY src/ src/
-COPY scripts/ scripts/
+COPY src/ /app/src/
+COPY tests/ /app/tests/
+COPY scripts/ /app/scripts/
+COPY pytest.ini /app/
 
 # Create necessary directories
 RUN mkdir -p /app/logs /app/data && \
@@ -66,7 +68,7 @@ ENV PYTHONPATH=/app \
     LOG_LEVEL=info \
     PORT=8000
 
-# Run the application
+# Run the application  
 CMD ["python", "-m", "uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 # Development stage (for local development with hot reload)

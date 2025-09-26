@@ -27,4 +27,5 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 - Resolve problems directly without creating redundant code or files
 - Prioritize robust, direct solutions over workarounds
 
-[Rest of the existing content remains unchanged...]
+### Virtual Environment Setup
+- Use `python3 -m venv venv` to create a new virtual environment

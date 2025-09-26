@@ -10,7 +10,20 @@
       "Bash(git push:*)",
       "Bash(gh auth:*)",
       "Bash(git remote set-url:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(git commit:*)",
+      "Bash(git tag:*)",
+      "Bash(docker-compose:*)",
+      "Bash(curl:*)",
+      "Bash(docker exec:*)",
+      "Bash(true)",
+      "Bash(python3:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(python:*)",
+      "Bash(export:*)",
+      "Bash(rm:*)",
+      "Bash(docker build:*)"
     ],
     "deny": []
   }

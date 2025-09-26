@@ -12,7 +12,7 @@ services:
       target: development  # Use development stage for local dev
     container_name: lawyer-agentic-api
     ports:
-      - "8000:8000"
+      - "8002:8000"
     environment:
       - PYTHONPATH=/app
       - LOG_LEVEL=info
@@ -51,7 +51,7 @@ services:
       - postgres-data:/var/lib/postgresql/data
       - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
     ports:
-      - "5432:5432"  # Expose for external connections during development
+      - "5435:5432"  # Expose for external connections during development
     networks:
       - lawyer-agentic-network
     restart: unless-stopped
@@ -66,7 +66,7 @@ services:
     image: redis:7-alpine
     container_name: lawyer-agentic-redis
     ports:
-      - "6379:6379"  # Expose for external connections during development
+      - "6382:6379"  # Expose for external connections during development
     volumes:
       - redis-data:/data
       - ./docker/redis.conf:/usr/local/etc/redis/redis.conf:ro
@@ -85,8 +85,8 @@ services:
     image: nginx:alpine
     container_name: lawyer-agentic-nginx
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"
+      - "8443:443"
     volumes:
       - ./docker/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./docker/ssl:/etc/nginx/ssl:ro
@@ -116,4 +116,4 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.20.0.0/16
+        - subnet: 192.168.200.0/24
